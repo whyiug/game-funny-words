@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 
-import { WORD_DB } from "../src/game/word-db.js";
+import { BUILTIN_DICTIONARIES } from "../src/game/dictionaries.js";
 import { getRandomWord } from "../src/game/word-select.js";
 
 describe("getRandomWord", () => {
@@ -17,9 +17,12 @@ describe("getRandomWord", () => {
   });
 
   test("returns metadata that exists in the source database", () => {
-    const categories = Object.values(WORD_DB);
-    const labels = new Set(categories.map((category) => category.label));
-    const colors = new Set(categories.map((category) => category.color));
+    const labels = new Set(
+      BUILTIN_DICTIONARIES.flatMap((dictionary) => dictionary.items.map((item) => item.catLabel)),
+    );
+    const colors = new Set(
+      BUILTIN_DICTIONARIES.flatMap((dictionary) => dictionary.items.map((item) => item.catColor)),
+    );
     const word = getRandomWord();
 
     expect(labels.has(word.catLabel)).toBe(true);

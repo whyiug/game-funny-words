@@ -37,6 +37,15 @@ describe("createDictionaryManager", () => {
     ]);
   });
 
+  test("ships at least 200 built-in words for each age band", () => {
+    const manager = createDictionaryManager({ storage });
+    const dictionaries = manager.listDictionaries();
+
+    dictionaries.forEach((dictionary) => {
+      expect(dictionary.items.length).toBeGreaterThanOrEqual(200);
+    });
+  });
+
   test("defaults to kindergarten as the active dictionary", () => {
     const manager = createDictionaryManager({ storage });
 
