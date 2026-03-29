@@ -35,6 +35,7 @@ describe("app bootstrap", () => {
 
     bootstrapApp();
 
+    expect(document.querySelector(".title-group .title-plate")).not.toBeNull();
     expect(document.querySelector(".game-logo")?.textContent).toContain("鼻尖碰碰词");
     expect(document.querySelector(".subtitle")?.textContent).toContain("欢乐英语识字乐园");
     expect(document.getElementById("play-button")?.textContent).toContain("开始游戏");
