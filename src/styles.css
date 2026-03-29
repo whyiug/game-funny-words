@@ -218,6 +218,19 @@ canvas {
   animation: float 4s ease-in-out infinite;
 }
 
+.title-glow {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  z-index: -2;
+  width: min(560px, calc(100vw - 32px));
+  height: 170px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.75) 0%, rgba(255, 244, 179, 0.5) 42%, rgba(255, 202, 40, 0.16) 68%, transparent 100%);
+  transform: translateX(-50%);
+  filter: blur(8px);
+}
+
 .title-plate {
   position: absolute;
   top: -14px;
@@ -237,15 +250,15 @@ canvas {
   position: relative;
   z-index: 1;
   margin: 0;
-  color: #ffd54f;
+  color: #ffe062;
   font-family: "ZCOOL KuaiLe", "Noto Sans SC", cursive;
-  font-size: 74px;
+  font-size: 78px;
   line-height: 1;
   letter-spacing: 0;
   transform: rotate(-3deg);
-  text-shadow: 4px 4px 0 #f57c00, 8px 8px 0 rgba(255, 255, 255, 0.55), 14px 14px 24px rgba(0, 0, 0, 0.12);
-  -webkit-text-stroke: 5px #fff;
-  filter: drop-shadow(0 10px 18px rgba(255, 152, 0, 0.22));
+  text-shadow: 5px 5px 0 #ef6c00, 10px 10px 0 rgba(255, 255, 255, 0.72), 16px 16px 28px rgba(0, 0, 0, 0.16);
+  -webkit-text-stroke: 6px #fff;
+  filter: drop-shadow(0 12px 20px rgba(255, 152, 0, 0.28));
 }
 
 .subtitle {
@@ -505,7 +518,12 @@ canvas {
   }
 
   .game-logo {
-    font-size: 62px;
+    font-size: 66px;
+  }
+
+  .title-glow {
+    width: min(500px, calc(100vw - 24px));
+    height: 142px;
   }
 
   .title-plate {

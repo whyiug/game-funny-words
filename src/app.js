@@ -31,6 +31,7 @@ export function bootstrapApp(root = document.getElementById("app")) {
 
       <div id="lobby">
         <div class="title-group">
+          <div class="title-glow" aria-hidden="true"></div>
           <div class="title-plate" aria-hidden="true"></div>
           <h1 class="game-logo">鼻尖碰碰词</h1>
           <div class="subtitle">欢乐英语识字乐园</div>
