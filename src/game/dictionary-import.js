@@ -65,12 +65,12 @@ export function parseDictionaryText(text, meta) {
   } else if (isText(meta)) {
     words = parsePlainText(text);
   } else {
-    throw new Error("Unsupported dictionary format");
+    throw new Error("暂不支持这种词库格式，请上传 TXT 或 CSV 文件。");
   }
 
   const cleaned = dedupeWords(words);
   if (!cleaned.length) {
-    throw new Error("Dictionary is empty");
+    throw new Error("词库内容为空，请检查文件内容。");
   }
 
   return {
@@ -95,7 +95,7 @@ export async function parseDictionaryFile(file) {
       reader.readAsText(file);
     });
   } else {
-    throw new Error("Unable to read dictionary file");
+    throw new Error("无法读取词库文件。");
   }
 
   return parseDictionaryText(text, {

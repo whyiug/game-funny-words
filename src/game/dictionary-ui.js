@@ -5,7 +5,7 @@ function renderStatus(elements, dictionary, message = "") {
   }
 
   const count = dictionary?.items?.length || 0;
-  elements.dictionaryStatus.textContent = `${dictionary.label} selected • ${count} words ready`;
+  elements.dictionaryStatus.textContent = `已选择${dictionary.label}词库，共 ${count} 个单词`;
 }
 
 function renderOptions(elements, dictionaries, activeId) {
@@ -38,7 +38,7 @@ export function initDictionaryControls({
 
   elements.dictionaryClear.addEventListener("click", () => {
     manager.clearCustomDictionary();
-    sync("Custom dictionary cleared. Back to built-in words.");
+    sync("已清空自定义词库，已切回内置词库。");
   });
 
   elements.dictionaryUpload.addEventListener("change", async () => {
@@ -50,12 +50,12 @@ export function initDictionaryControls({
     try {
       const parsed = await parseDictionaryFile(file);
       manager.saveCustomDictionary(parsed);
-      sync(`Imported ${parsed.words.length} custom words from ${parsed.name}.`);
+      sync(`已导入“${parsed.name}”，共 ${parsed.words.length} 个单词。`);
     } catch (error) {
       renderStatus(
         elements,
         manager.getActiveDictionary(),
-        error instanceof Error ? error.message : "Failed to import dictionary",
+        error instanceof Error ? error.message : "导入词库失败",
       );
     } finally {
       elements.dictionaryUpload.value = "";

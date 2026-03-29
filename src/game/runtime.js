@@ -253,6 +253,20 @@ function ensureErrorBanner(container) {
   return banner;
 }
 
+function setCardField(element, value) {
+  if (!element) {
+    return;
+  }
+
+  if (value) {
+    element.textContent = value;
+    element.hidden = false;
+  } else {
+    element.textContent = "";
+    element.hidden = true;
+  }
+}
+
 export function createBrowserGame(elements) {
   const state = createGameState();
   const player = createPlayerState();
@@ -325,7 +339,9 @@ export function createBrowserGame(elements) {
         scoreDisplay.textContent = String(state.score);
         elements.cardEmoji.textContent = item.data.e;
         elements.cardWord.textContent = item.data.t;
-        elements.cardPhone.textContent = item.data.p;
+        setCardField(elements.cardPhone, item.data.p);
+        setCardField(elements.cardChinese, item.data.zh);
+        setCardField(elements.cardChinesePron, item.data.zhPron);
         elements.cardCategory.textContent = item.data.catLabel;
         elements.cardBackground.style.background = item.data.catColor;
         popup.classList.add("show");

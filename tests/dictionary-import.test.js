@@ -49,7 +49,7 @@ describe("parseDictionaryText", () => {
         type: "application/json",
         name: "words.json",
       }),
-    ).toThrow("Unsupported dictionary format");
+    ).toThrow("暂不支持这种词库格式");
   });
 });
 

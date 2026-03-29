@@ -19,6 +19,8 @@ describe("runtime helpers", () => {
         t: "Apple",
         e: "🍎",
         p: "/ˈæpəl/",
+        zh: "苹果",
+        zhPron: "ping guo",
         catColor: "#fff",
         catLabel: "Fruit",
       }),
@@ -44,6 +46,8 @@ describe("runtime helpers", () => {
         t: "Apple",
         e: "🍎",
         p: "/ˈæpəl/",
+        zh: "苹果",
+        zhPron: "ping guo",
         catColor: "#fff",
         catLabel: "Fruit",
       },
@@ -64,5 +68,42 @@ describe("runtime helpers", () => {
     expect(state.score).toBe(1);
     expect(state.items).toHaveLength(0);
     expect(events).toEqual(["Apple"]);
+  });
+
+  test("allows custom words to omit chinese translation fields", () => {
+    const state = createGameState();
+    const player = createPlayerState();
+
+    state.active = true;
+    state.items.push({
+      x: 100,
+      y: 100,
+      size: 36,
+      offset: 0,
+      data: {
+        t: "CustomWord",
+        e: "✨",
+        p: "",
+        zh: "",
+        zhPron: "",
+        catColor: "#000",
+        catLabel: "Custom",
+      },
+    });
+    player.noseX = 100;
+    player.noseY = 100;
+
+    const events = [];
+    stepGame({
+      state,
+      player,
+      width: 1000,
+      height: 800,
+      getRandomWord: () => null,
+      onCollect: (item) => events.push(item.data),
+    });
+
+    expect(events[0].zh).toBe("");
+    expect(events[0].zhPron).toBe("");
   });
 });

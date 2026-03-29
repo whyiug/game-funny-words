@@ -71,7 +71,7 @@ describe("initDictionaryControls", () => {
 
     expect(elements.dictionarySelect.options).toHaveLength(1);
     expect(elements.dictionaryStatus.textContent).toContain("幼儿园");
-    expect(elements.dictionaryStatus.textContent).toContain("2 words");
+    expect(elements.dictionaryStatus.textContent).toContain("2 个单词");
   });
 
   test("uploads a custom dictionary and switches to it", async () => {
@@ -97,6 +97,7 @@ describe("initDictionaryControls", () => {
 
     expect(elements.dictionarySelect.value).toBe("custom");
     expect(elements.dictionaryStatus.textContent).toContain("My Words");
+    expect(elements.dictionaryStatus.textContent).toContain("已导入");
     expect(onDictionaryChange).toHaveBeenCalled();
   });
 });

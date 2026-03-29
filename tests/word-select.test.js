@@ -10,6 +10,8 @@ describe("getRandomWord", () => {
     expect(typeof word.t).toBe("string");
     expect(typeof word.e).toBe("string");
     expect(typeof word.p).toBe("string");
+    expect(typeof word.zh).toBe("string");
+    expect(typeof word.zhPron).toBe("string");
     expect(typeof word.catColor).toBe("string");
     expect(typeof word.catLabel).toBe("string");
   });
@@ -33,6 +35,8 @@ describe("getRandomWord", () => {
             t: "CustomWord",
             e: "✨",
             p: "",
+            zh: "",
+            zhPron: "",
             catColor: "#000",
             catLabel: "Custom",
           },

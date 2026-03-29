@@ -127,8 +127,10 @@ export function createCustomDictionary(name, words) {
       t: word,
       e: "✨",
       p: "",
+      zh: "",
+      zhPron: "",
       catColor: "#7E57C2",
-      catLabel: "Custom",
+      catLabel: "自定义",
     })),
   };
 }

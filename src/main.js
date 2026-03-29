@@ -40,7 +40,7 @@ elements.playButton.addEventListener("click", async () => {
 
     game.start();
   } catch (error) {
-    game.showCameraError("Camera access failed. Please allow camera permission and refresh.");
+    game.showCameraError("摄像头启动失败，请允许摄像头权限后刷新页面再试。");
     console.error(error);
   }
 });
