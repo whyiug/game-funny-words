@@ -50,6 +50,21 @@ export function bootstrapApp(root = document.getElementById("app")) {
           </div>
         </div>
 
+        <div class="dictionary-panel">
+          <label class="dictionary-label" for="dictionary-select">Word Library</label>
+          <select id="dictionary-select" class="dictionary-select"></select>
+
+          <div class="dictionary-actions">
+            <label class="dictionary-upload-btn" for="dictionary-upload">Upload TXT/CSV</label>
+            <input id="dictionary-upload" type="file" accept=".txt,.csv,text/plain,text/csv" />
+            <button id="dictionary-clear" class="dictionary-clear" type="button">Clear My Words</button>
+          </div>
+
+          <div id="dictionary-status" class="dictionary-status">
+            Choose a word library before you play.
+          </div>
+        </div>
+
         <button class="btn-start" id="play-button" type="button">PLAY NOW</button>
 
         <div class="privacy-note">🔒 Safe & Secure • No Video Stored</div>
@@ -69,6 +84,10 @@ export function bootstrapApp(root = document.getElementById("app")) {
     cardCategory: root.querySelector("#c-cat"),
     cardBackground: root.querySelector("#card-bg"),
     lobby: root.querySelector("#lobby"),
+    dictionarySelect: root.querySelector("#dictionary-select"),
+    dictionaryUpload: root.querySelector("#dictionary-upload"),
+    dictionaryStatus: root.querySelector("#dictionary-status"),
+    dictionaryClear: root.querySelector("#dictionary-clear"),
     playButton: root.querySelector("#play-button"),
   };
 }

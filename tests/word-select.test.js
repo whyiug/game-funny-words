@@ -23,4 +23,24 @@ describe("getRandomWord", () => {
     expect(labels.has(word.catLabel)).toBe(true);
     expect(colors.has(word.catColor)).toBe(true);
   });
+
+  test("uses the provided dictionary when one is active", () => {
+    const word = getRandomWord(
+      () => 0,
+      {
+        items: [
+          {
+            t: "CustomWord",
+            e: "✨",
+            p: "",
+            catColor: "#000",
+            catLabel: "Custom",
+          },
+        ],
+      },
+    );
+
+    expect(word.t).toBe("CustomWord");
+    expect(word.catLabel).toBe("Custom");
+  });
 });

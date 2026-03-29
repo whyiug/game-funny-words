@@ -17,5 +17,16 @@ describe("app bootstrap", () => {
     expect(document.getElementById("score-disp")).not.toBeNull();
     expect(document.getElementById("card-popup")).not.toBeNull();
     expect(document.getElementById("lobby")).not.toBeNull();
-  });
+  }, 10000);
+
+  test("renders dictionary controls on the lobby", () => {
+    document.body.innerHTML = '<div id="app"></div>';
+
+    bootstrapApp();
+
+    expect(document.getElementById("dictionary-select")).not.toBeNull();
+    expect(document.getElementById("dictionary-upload")).not.toBeNull();
+    expect(document.getElementById("dictionary-status")).not.toBeNull();
+    expect(document.getElementById("dictionary-clear")).not.toBeNull();
+  }, 10000);
 });

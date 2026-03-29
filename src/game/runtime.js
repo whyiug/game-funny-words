@@ -264,6 +264,7 @@ export function createBrowserGame(elements) {
   const popup = elements.cardPopup;
   const scoreDisplay = elements.scoreDisplay;
   const errorBanner = ensureErrorBanner(elements.root);
+  let activeDictionary = null;
 
   let popupTimer = null;
 
@@ -319,6 +320,7 @@ export function createBrowserGame(elements) {
       player,
       width: canvas.width,
       height: canvas.height,
+      getRandomWord: (random) => getRandomWord(random, activeDictionary),
       onCollect: (item) => {
         scoreDisplay.textContent = String(state.score);
         elements.cardEmoji.textContent = item.data.e;
@@ -391,6 +393,9 @@ export function createBrowserGame(elements) {
     player,
     start,
     resize,
+    setDictionary(dictionary) {
+      activeDictionary = dictionary;
+    },
     drawPreview,
     handleTracking,
     showCameraError,
